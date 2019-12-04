@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+        function add(){
+			// var invite = document.getElementById ("invite");
+ 			//    var node = invite.children[0];
+ 			//    var str = node.outerHTML;
+ 			//    invite.innerHTML += str + "<br / >";
+ 			//以上是失败的创建空白输入框，每次增加新输入框会使原本输入框的值消失
+ 			
+ 			var li1 = document.getElementById("li1");
+    		//创建li
+    		var lis = document.createElement("li");
+    		//创建文本
+    		var texts =document.createElement('input');
+    		texts.setAttribute('type', 'text');//输入框的类型
+    		texts.setAttribute('name', "man");//输入框的名字
+    		texts.setAttribute('id', "mans");//输入框的id
+    		//把文本添加到li下面 appendChild
+    		lis.appendChild(texts);
+    		//获取到div
+    		var invite = document.getElementById("invite"); 
+    		invite.insertBefore(lis,li1);
+		}
+		function sub(){
+			var inp = document.getElementsByName("man");
+			var inputs = new Array();
+			for(var i=0; i<inp.length;i++){
+			//	alert(inp[i].value);				//获得输入框的值
+				inputs[i] = inp[i].value;
+			}
+			alert(inputs);						//将输入框的值赋予inputs数组中
+		}
+    </script>
+</head>
+<body>
+	<form action="">
+		<p>邀请人员：<span>（点击按钮可增加邀请人 ）</span></p>
+		<div id="invite">
+			<input type="text" name="man" id="mans">
+		</div>
+		<input type="button" value="+" οnclick="add()">
+		<p>
+			<input type="button" value="完成" οnclick="sub()">
+		</p>
+	</form>
+</body>
+</html>
+ 
+
+文章最后发布于: 2018-12-29 21:34:53

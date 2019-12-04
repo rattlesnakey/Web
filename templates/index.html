@@ -54,7 +54,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                         <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">登录 /注册</a></li>
+                         <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">登录</a></li>
                     </ul>
                </div>
 
@@ -426,21 +426,26 @@
                                         <!-- TAB PANES -->
                                         <div class="tab-content">
                                              <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+                                                      
                                                   <form action="#" method="post">
-                                                       <input type="text" class="form-control" name="name" placeholder="Name" required>
-                                                       <input type="telephone" class="form-control" name="telephone" placeholder="Telephone" required>
-                                                       <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                                       <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                                       <input type="text" class="form-control" name="name" placeholder="昵称" required>
+                                                       <input type="telephone" class="form-control" name="telephone" placeholder="电话" required>
+                                                       <input type="email" class="form-control" name="email" placeholder="邮箱" required>
+                                                       <input type="password" class="form-control" name="password" placeholder="密码" required>
                                                        <input type="submit" class="form-control" name="submit" value="确定">
                                                   </form>
                                              </div>
 
-                                             <div role="tabpanel" class="tab-pane fade in" id="sign_in">
-                                                  <form action="#" method="post">
-                                                       <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                                       <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                             <div role="tabpanel" class="tab-pane fade in" id="sign_in">                                                       
+                                                  <form action="{{ url_for('login')}}" method="POST">
+                                                       <div style="color: #E08B78">
+                                                                 {% if error %}
+                                                                 {{error}}
+                                                                 {% endif %}
+                                                       </div>
+                                                       <input type="email" class="form-control" name="loginemail" placeholder="邮箱" required>
+                                                       <input type="password" class="form-control" name="loginpassword" placeholder="密码" required>
                                                        <input type="submit" class="form-control" name="submit" value="确定">
-                                                       <a href="https://www.facebook.com/templatemo">忘记密码?</a>
                                                   </form>
                                              </div>
                                         </div>
